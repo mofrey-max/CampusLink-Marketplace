@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#7c3aed" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="CampusLink" />
+    <meta name="application-name" content="CampusLink" />
+    <meta name="msapplication-TileColor" content="#7c3aed" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    
+    <!-- Description -->
+    <meta name="description" content="Connect, collaborate, and succeed with fellow students on CampusLink - the ultimate student collaboration platform" />
+    <meta name="keywords" content="student, collaboration, tutoring, marketplace, accommodation, campus, university, college" />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CampusLink - Student Collaboration Platform" />
+    <meta property="og:description" content="Connect, collaborate, and succeed with fellow students" />
+    <meta property="og:site_name" content="CampusLink" />
+    <meta property="og:url" content="https://campuslink.app" />
+    <meta property="og:image" content="/icons/icon-512x512.png" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CampusLink - Student Collaboration Platform" />
+    <meta name="twitter:description" content="Connect, collaborate, and succeed with fellow students" />
+    <meta name="twitter:image" content="/icons/icon-512x512.png" />
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png" />
+    <link rel="apple-touch-icon" href="/icons/icon-180x180.png" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#7c3aed" />
+    
+    <title data-default>CampusLink</title>
+    <script type="module" crossorigin src="/assets/index-B5N8yS5N.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-nf7bT_Uh.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-DDSYWCaz.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-CVpl6DjW.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- PWA Installation Script -->
+    <script>
+      // Register service worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+      
+      // PWA Install prompt
+      let deferredPrompt;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        // Show install button
+        const installButton = document.getElementById('install-button');
+        if (installButton) {
+          installButton.style.display = 'block';
+        }
+      });
+    </script>
+  </body>
+</html>
